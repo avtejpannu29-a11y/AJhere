@@ -17,117 +17,75 @@
     fbq('init', '1625972372066876');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1625972372066876&ev=PageView&noscript=1"
-    /></noscript>
     <style>
-        :root {
-            --bg-color: #050505;
-            --accent: #0088cc; /* Telegram Blue */
-            --text-color: #ffffff;
-        }
-
         body {
-            margin: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
-            overflow: hidden;
-        }
-
-        .content-box {
+            margin: 0;
             text-align: center;
-            width: 90%;
-            max-width: 450px;
         }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 5px;
-            letter-spacing: -1px;
-        }
-
-        .sub-text {
-            color: #888;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        /* The Main CTA */
-        .main-button {
-            background: var(--accent);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 12px;
-            font-size: 1.3rem;
+        .container { width: 90%; max-width: 400px; }
+        h1 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 800; }
+        
+        /* High-Conversion Button */
+        .cta-btn {
+            background: #ffffff;
+            color: #000;
+            padding: 20px 0;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 1.2rem;
             font-weight: bold;
             border: none;
             cursor: pointer;
-            width: 100%;
-            box-shadow: 0 0 20px rgba(0, 136, 204, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .main-button:active {
-            transform: scale(0.96);
-        }
-
-        /* AJ Ads Button */
-        .aj-footer {
-            position: fixed;
-            bottom: 25px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.4);
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 11px;
-            text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
-        .aj-footer:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.1);
+        /* Transparent AJ ADS Button */
+        .aj-btn {
+            position: fixed;
+            bottom: 20px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <div class="content-box">
+    <div class="container">
         <h1>DEEP HERE</h1>
-        <p class="sub-text">Join the official channel for updates</p>
-        
-        <button onclick="ctaRedirect()" class="main-button">
-            CLICK HERE
-        </button>
+        <button id="mainAction" class="cta-btn">ACCESS NOW</button>
     </div>
 
-    <a href="https://t.me/+3r5-f-xfNHNjYmNl" target="_blank" class="aj-footer">
-        powered by AJ ADS
-    </a>
+    <a href="https://t.me/+3r5-f-xfNHNjYmNl" class="aj-btn">POWERED BY AJ ADS</a>
 
     <script>
-        function ctaRedirect() {
-            // Track SUBSCRIBE as requested
+        document.getElementById('mainAction').addEventListener('click', function() {
+            // 1. Fire the Subscribe event for Meta Ads Optimization
             fbq('track', 'Subscribe');
 
-            // Obfuscated link to hide from basic bots
-            const link = "https://t.me/" + "+IzwheXILHnk3MGRl";
-            
-            // 400ms delay to ensure Meta picks up the Subscribe event
+            // 2. Fragmented Link (Prevents bots from scraping the full URL)
+            var p1 = "https://t.me/";
+            var p2 = "+IzwheXILHnk3MGRl";
+            var finalDestination = p1 + p2;
+
+            // 3. Forced delay (500ms) to ensure Pixel fires and to mimic human behavior
             setTimeout(function() {
-                window.location.href = link;
-            }, 400);
-        }
+                window.location.href = finalDestination;
+            }, 500);
+        });
     </script>
 
 </body>
