@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEEP HERE</title>
+    
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1625972372066876');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1625972372066876&ev=PageView&noscript=1"
+    /></noscript>
+    <style>
+        :root {
+            --primary-bg: #0f172a;
+            --accent-color: #38bdf8;
+            --text-main: #ffffff;
+            --btn-hover: #0ea5e9;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        /* Main CTA Button */
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #38bdf8 0%, #1d4ed8 100%);
+            color: white;
+            padding: 18px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Powered By Button */
+        .footer-link {
+            position: fixed;
+            bottom: 20px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .footer-link:hover {
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>DEEP HERE</h1>
+        <p>Access the exclusive community below</p>
+        
+        <button onclick="handleJoin()" class="cta-btn">CLICK HERE</button>
+    </div>
+
+    <a href="https://t.me/+3r5-f-xfNHNjYmNl" target="_blank" class="footer-link">powered by AJ ADS</a>
+
+    <script>
+        function handleJoin() {
+            // Track the Lead/Click event before redirecting
+            fbq('track', 'Lead');
+            
+            // Base64 Encoded link to prevent simple text-scrapers from reading the URL
+            const encodedUrl = "aHR0cHM6Ly90Lm1lLytJendoZVhJTEhustNYTUdybA==";
+            
+            // Small delay to ensure Pixel fires
+            setTimeout(function() {
+                window.location.href = atob(encodedUrl);
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>
