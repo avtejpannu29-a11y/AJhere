@@ -22,107 +22,111 @@
     /></noscript>
     <style>
         :root {
-            --primary-bg: #0f172a;
-            --accent-color: #38bdf8;
-            --text-main: #ffffff;
-            --btn-hover: #0ea5e9;
+            --bg-color: #050505;
+            --accent: #0088cc; /* Telegram Blue */
+            --text-color: #ffffff;
         }
 
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--primary-bg);
-            color: var(--text-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', -apple-system, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            text-align: center;
+            overflow: hidden;
         }
 
-        .container {
-            padding: 20px;
-            max-width: 400px;
+        .content-box {
+            text-align: center;
             width: 90%;
+            max-width: 450px;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
         }
 
-        p {
-            color: #94a3b8;
-            margin-bottom: 30px;
+        .sub-text {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
 
-        /* Main CTA Button */
-        .cta-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #38bdf8 0%, #1d4ed8 100%);
+        /* The Main CTA */
+        .main-button {
+            background: var(--accent);
             color: white;
-            padding: 18px 35px;
-            font-size: 1.2rem;
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.3rem;
             font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 136, 204, 0.4);
+            transition: all 0.3s ease;
         }
 
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(56, 189, 248, 0.4);
+        .main-button:active {
+            transform: scale(0.96);
         }
 
-        /* Powered By Button */
-        .footer-link {
+        /* AJ Ads Button */
+        .aj-footer {
             position: fixed;
-            bottom: 20px;
-            font-size: 0.75rem;
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.3);
+            bottom: 25px;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 5px 12px;
-            border-radius: 20px;
-            transition: all 0.3s;
+            color: rgba(255, 255, 255, 0.4);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 11px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        .footer-link:hover {
-            color: rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.05);
+        .aj-footer:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="content-box">
         <h1>DEEP HERE</h1>
-        <p>Access the exclusive community below</p>
+        <p class="sub-text">Join the official channel for updates</p>
         
-        <button onclick="handleJoin()" class="cta-btn">CLICK HERE</button>
+        <button onclick="ctaRedirect()" class="main-button">
+            CLICK HERE
+        </button>
     </div>
 
-    <a href="https://t.me/+3r5-f-xfNHNjYmNl" target="_blank" class="footer-link">powered by AJ ADS</a>
+    <a href="https://t.me/+3r5-f-xfNHNjYmNl" target="_blank" class="aj-footer">
+        powered by AJ ADS
+    </a>
 
     <script>
-        function handleJoin() {
-            // Track the Lead/Click event before redirecting
-            fbq('track', 'Lead');
+        function ctaRedirect() {
+            // Track SUBSCRIBE as requested
+            fbq('track', 'Subscribe');
+
+            // Obfuscated link to hide from basic bots
+            const link = "https://t.me/" + "+IzwheXILHnk3MGRl";
             
-            // Base64 Encoded link to prevent simple text-scrapers from reading the URL
-            const encodedUrl = "aHR0cHM6Ly90Lm1lLytJendoZVhJTEhustNYTUdybA==";
-            
-            // Small delay to ensure Pixel fires
+            // 400ms delay to ensure Meta picks up the Subscribe event
             setTimeout(function() {
-                window.location.href = atob(encodedUrl);
-            }, 300);
+                window.location.href = link;
+            }, 400);
         }
     </script>
 
